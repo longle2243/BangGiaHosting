@@ -85,6 +85,29 @@
     <link href="assets/css/customv2.css?v=1768549914" rel="stylesheet">
     <link href="assets/css/contract-popup.css?v=1756442677" rel="stylesheet">
     <link href="assets/css/jquery.datepicker2.css?v=1755144117" rel="stylesheet">
+    <style>
+        /* Hiển thị toàn bộ bảng hosting và ẩn điều hướng Swiper */
+        .hosting-swiper .swiper-container {
+            overflow: visible !important;
+        }
+        .hosting-swiper .swiper-wrapper {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+            gap: 24px !important;
+            transform: none !important;
+            margin: 0 !important;
+        }
+        .hosting-swiper .swiper-slide {
+            width: auto !important;
+            margin: 0 !important;
+            position: static !important;
+            transform: none !important;
+        }
+        .hosting-swiper .swiper-button-prev,
+        .hosting-swiper .swiper-button-next {
+            display: none !important;
+        }
+    </style>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q33RDWH4FQ"></script>
