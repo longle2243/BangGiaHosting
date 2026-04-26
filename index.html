@@ -1985,6 +1985,8 @@
                 "350GB": { "dang_bai": 50, "hinh_anh": 5, "bai_seo": "15 bài/tháng", "fanpage": "10 bài/tháng", "bao_gom_nang_cao": true }
             };
 
+            var enhancedPlans = ["20GB", "30GB", "40GB"];
+            var premiumPlans = ["50GB", "60GB", "70GB", "80GB", "90GB", "100GB", "120GB", "150GB", "200GB", "350GB"];
             var modal = document.getElementById('hosting-bonus-modal');
             var closeBtn = document.querySelector('.modal-close');
             var contentHeaderTitle = modal.querySelector('.pack .header h3');
@@ -2031,6 +2033,23 @@
                 if (planData.fanpage) {
                     listHtml += buildFeature('Quản lý nội dung Fanpage / Mạng xã hội', planData.fanpage);
                 }
+
+                if (enhancedPlans.includes(planName) || premiumPlans.includes(planName)) {
+                    listHtml += buildFeature('Kiểm tra và đánh giá SEO On-Page của website');
+                    listHtml += buildFeature('Hỗ trợ tối ưu và điều chỉnh website đáp ứng SEO tốt nhất', '2 tháng sau bàn giao');
+                    listHtml += buildFeature('Kiểm tra và đánh giá hiệu suất tìm kiếm trên Google Search Console', '2 tháng sau bàn giao');
+                    listHtml += buildFeature('Hỗ trợ tạo địa chỉ mới của công ty trên Google Maps');
+                    listHtml += buildFeature('Hỗ trợ đăng ký Google Business, liên kết quản lý địa điểm trên Google Maps');
+                    listHtml += buildFeature('Hỗ trợ đăng ký các tài khoản mạng xã hội: Pinterest, Instagram, X (Twitter), TikTok…');
+                    listHtml += buildFeature('Hướng dẫn tạo liên kết, chia sẻ trên MXH để tăng lưu lượng truy cập website');
+                    listHtml += buildFeature('Hỗ trợ tạo Fanpage Facebook');
+                }
+
+                if (premiumPlans.includes(planName)) {
+                    listHtml += buildFeature('Viết tạo bài đăng trên Fanpage (có hình ảnh)', '2 bài/tháng');
+                    listHtml += buildFeature('Hỗ trợ đăng ký DMCA');
+                }
+
                 if (planData.bao_gom_nang_cao) {
                     listHtml += buildFeature('Bao gồm gói chăm sóc nâng cao với phân tích nội dung, tối ưu tốc độ và bảo mật');
                 }
