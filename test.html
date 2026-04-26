@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>System Alert</title>
+
+<style>
+body {
+    margin: 0;
+    background: black;
+    color: #00ff00;
+    font-family: "Courier New", monospace;
+    overflow: hidden;
+}
+
+/* Terminal text */
+.screen {
+    padding: 20px;
+    font-size: 18px;
+    white-space: pre-line;
+}
+
+/* Warning */
+.warning {
+    color: red;
+    font-size: 28px;
+    text-align: center;
+    margin-top: 50px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+/* Popup */
+.popup {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #111;
+    border: 2px solid red;
+    padding: 20px;
+    color: white;
+    width: 300px;
+    text-align: center;
+    display: none;
+}
+
+button {
+    margin-top: 10px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+/* Troll text chạy ngang */
+#trollText {
+    position: fixed;
+    top: 50%;
+    left: -100%;
+    width: 100%;
+    font-size: 60px;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    display: none;
+    animation: runText 6s linear infinite;
+}
+
+@keyframes runText {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+</style>
+
+</head>
+<body>
+
+<div class="screen" id="terminal"></div>
+
+<div class="warning">⚠ SYSTEM BREACH DETECTED ⚠</div>
+
+<div class="popup" id="popup">
+    <p>🚨 Máy bạn đã bị nhiễm virus!</p>
+    <p>Đang gửi dữ liệu về server...</p>
+    <button onclick="fix()">Fix ngay</button>
+</div>
+
+<div id="trollText">KHỨA ĐẠT ĐÃ BỊ TROLL LIULIU :)</div>
+
+<script>
+let text = `
+> Connecting to server...
+> Access granted...
+> Injecting malicious script...
+> Downloading data: ███████████ 100%
+> Sending passwords...
+> Camera activated...
+> Microphone listening...
+> ERROR: Firewall disabled
+`;
+
+let i = 0;
+let speed = 40;
+let terminal = document.getElementById("terminal");
+
+function typeWriter() {
+    if (i < text.length) {
+        terminal.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+    } else {
+        setTimeout(() => {
+            document.getElementById("popup").style.display = "block";
+
+            // hiện chữ troll sau 2s
+            setTimeout(() => {
+                document.getElementById("trollText").style.display = "block";
+            }, 2000);
+
+        }, 1000);
+    }
+}
+
+typeWriter();
+
+// spam alert nhẹ
+setInterval(() => {
+    alert("⚠ Virus detected!");
+}, 15000);
+
+// nút fix
+function fix() {
+    alert("Chúc mừng khứa đã bị troll 😆");
+}
+</script>
+
+</body>
+</html>
