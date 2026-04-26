@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Tài Khoản Bị Khóa</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #232526, #414345);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Box chính */
+.container {
+    background: rgba(0,0,0,0.7);
+    padding: 40px;
+    border-radius: 16px;
+    max-width: 550px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+/* Icon */
+.icon {
+    font-size: 64px;
+    margin-bottom: 15px;
+}
+
+/* Title */
+h1 {
+    margin: 10px 0;
+    font-size: 28px;
+    color: #ff4d4d;
+}
+
+/* Text */
+p {
+    color: #ddd;
+    line-height: 1.6;
+}
+
+/* Box note */
+.note {
+    background: rgba(255,0,0,0.1);
+    border-left: 4px solid #ff4d4d;
+    padding: 12px;
+    margin: 20px 0;
+    text-align: left;
+    font-size: 14px;
+}
+
+/* Button */
+.btn {
+    margin-top: 15px;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 8px;
+    background: #ff4d4d;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.btn:hover {
+    background: #e60000;
+}
+
+/* Contact */
+.contact {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #bbb;
+}
+
+/* subtle shake */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+}
+
+.container {
+    animation: shake 0.6s ease-in-out;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="icon">🔒</div>
+
+    <h1>Tài Khoản / Trang Đã Bị Khóa</h1>
+
+    <p>
+        Hệ thống đã tạm thời <b>khóa quyền truy cập</b> đối với trang của bạn
+        do phát hiện hoạt động không phù hợp với chính sách sử dụng.
+    </p>
+
+    <div class="note">
+        ⚠ Nguyên nhân có thể bao gồm:
+        <ul>
+            <li>Vi phạm quy định nội dung hoặc điều khoản dịch vụ</li>
+            <li>Sử dụng hệ thống sai mục đích / spam / khai thác</li>
+            <li>Thanh toán quá hạn hoặc chưa hoàn tất</li>
+            <li>Phát hiện truy cập bất thường từ nhiều thiết bị/IP</li>
+        </ul>
+    </div>
+
+    <p>
+        Để đảm bảo an toàn và tính minh bạch cho hệ thống, 
+        tài khoản của bạn đã bị hạn chế cho đến khi được xác minh lại.
+    </p>
+
+    <button class="btn" onclick="contactAdmin()">Yêu cầu mở khóa</button>
+
+    <div class="contact">
+        📞 Hotline: 0559 115 900<br>
+        📩 Email: longle.nasani@gmail.com<br>
+        ⏱ Thời gian xử lý: 12 – 24 giờ
+    </div>
+</div>
+
+<script>
+function contactAdmin() {
+    alert("Vui lòng liên hệ admin để được kiểm tra và mở khóa tài khoản.");
+}
+</script>
+
+</body>
+</html>

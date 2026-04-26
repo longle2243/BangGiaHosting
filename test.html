@@ -2,141 +2,119 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>System Alert</title>
+<title>Đang Bảo Trì Hệ Thống</title>
 
 <style>
 body {
     margin: 0;
-    background: black;
-    color: #00ff00;
-    font-family: "Courier New", monospace;
-    overflow: hidden;
-}
-
-/* Terminal text */
-.screen {
-    padding: 20px;
-    font-size: 18px;
-    white-space: pre-line;
-}
-
-/* Warning */
-.warning {
-    color: red;
-    font-size: 28px;
-    text-align: center;
-    margin-top: 50px;
-    animation: blink 1s infinite;
-}
-
-@keyframes blink {
-    0% {opacity: 1;}
-    50% {opacity: 0;}
-    100% {opacity: 1;}
-}
-
-/* Popup */
-.popup {
-    position: fixed;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #111;
-    border: 2px solid red;
-    padding: 20px;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    font-family: Arial, sans-serif;
     color: white;
-    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
     text-align: center;
-    display: none;
 }
 
-button {
-    margin-top: 10px;
-    padding: 6px 12px;
-    cursor: pointer;
+/* Box chính */
+.container {
+    background: rgba(0,0,0,0.6);
+    padding: 40px;
+    border-radius: 16px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
 }
 
-/* Troll text chạy ngang */
-#trollText {
-    position: fixed;
-    top: 50%;
-    left: -100%;
-    width: 100%;
+/* Icon */
+.icon {
     font-size: 60px;
-    color: red;
-    font-weight: bold;
-    text-align: center;
-    transform: translateY(-50%);
-    white-space: nowrap;
-    display: none;
-    animation: runText 6s linear infinite;
+    margin-bottom: 20px;
 }
 
-@keyframes runText {
-    0% { left: -100%; }
-    100% { left: 100%; }
+/* Tiêu đề */
+h1 {
+    margin: 10px 0;
+    font-size: 28px;
+}
+
+/* Nội dung */
+p {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+/* Nút */
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background: #00c6ff;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #0072ff;
+}
+
+/* loading */
+.loader {
+    margin-top: 20px;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 3px;
+    background-color: #00c6ff;
+    border-radius: 50%;
+    display: inline-block;
+    animation: bounce 1.4s infinite;
+}
+
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1); }
 }
 </style>
 
 </head>
 <body>
 
-<div class="screen" id="terminal"></div>
+<div class="container">
+    <div class="icon">🛠️</div>
+    <h1>Website Đang Bảo Trì</h1>
 
-<div class="warning">⚠ SYSTEM BREACH DETECTED ⚠</div>
+    <p>
+        Trang web hiện đang được nâng cấp để mang lại trải nghiệm tốt hơn cho bạn.<br>
+        Vui lòng quay lại sau ít phút.
+    </p>
 
-<div class="popup" id="popup">
-    <p>🚨 Máy bạn đã bị nhiễm virus!</p>
-    <p>Đang gửi dữ liệu về server...</p>
-    <button onclick="fix()">Fix ngay</button>
+    <p>
+        Nếu cần hỗ trợ gấp, vui lòng liên hệ:<br>
+        📞 Hotline: 0559 115 900<br>
+        📩 Email: longle.nasani@gmail.com
+    </p>
+
+    <div class="loader">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+    <button onclick="reloadPage()">Tải lại trang</button>
 </div>
 
-<div id="trollText">KHỨA ĐẠT ĐÃ BỊ TROLL LIULIU :)</div>
-
 <script>
-let text = `
-> Connecting to server...
-> Access granted...
-> Injecting malicious script...
-> Downloading data: ███████████ 100%
-> Sending passwords...
-> Camera activated...
-> Microphone listening...
-> ERROR: Firewall disabled
-`;
-
-let i = 0;
-let speed = 40;
-let terminal = document.getElementById("terminal");
-
-function typeWriter() {
-    if (i < text.length) {
-        terminal.innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, speed);
-    } else {
-        setTimeout(() => {
-            document.getElementById("popup").style.display = "block";
-
-            // hiện chữ troll sau 2s
-            setTimeout(() => {
-                document.getElementById("trollText").style.display = "block";
-            }, 2000);
-
-        }, 1000);
-    }
-}
-
-typeWriter();
-
-// spam alert nhẹ
-setInterval(() => {
-    alert("⚠ Virus detected!");
-}, 15000);
-
-// nút fix
-function fix() {
-    alert("Chúc mừng khứa đã bị troll 😆");
+function reloadPage() {
+    location.reload();
 }
 </script>
 
